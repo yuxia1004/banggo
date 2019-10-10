@@ -1,0 +1,34 @@
+*{
+	margin:0;
+	padding: 0;
+	}
+ul,ol {
+	list-style: none;
+	}
+a {
+	text-decoration:none;
+	}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+h1,h2,h3,h4,h5,h6,b,strong {
+	font-weight: normal;
+}
+.clear::after{
+	content: ".";
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	display: block;
+	clear: both;
+}
+i,em{
+	font-style: normal;
+}
+body{
+	font-family: "微软雅黑","宋体",verdana,"Helvetica Neue",Helvetica,sans-serif;
+    font-size: 12px;
+}

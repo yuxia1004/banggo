@@ -1,0 +1,137 @@
+@import "public";
+.login_head{
+    margin: 0 auto;
+    width: 980px;
+    a{
+        display: block;
+        width: 220px;
+        height: 100px;
+        background: url(../img/loginimg/logo.jpg) no-repeat 0px 0px;
+    }
+}
+.Cwrap{
+    width: 980px;
+    margin: 0 auto;
+    border-bottom: 2px solid #6E6E6E;
+    .Lovh{
+        overflow: hidden;
+    }
+    #mobile{
+        color: #FFF;
+        float: left;
+        width: 160px;
+        font-size: 14px;
+        text-align: center;
+    }
+    .cstyle {
+        height: 26px;
+        margin-top: 0;
+        font-weight: bold;
+        line-height: 26px;
+        background: url(../img/registerimg/buttonSkin.png) no-repeat 0 -450px;
+    }
+    
+}
+.RG_mbox {
+    border: 1px solid #CCC;
+    .item{
+        width: 700px;
+        padding-top: 10px; 
+    }
+    .ltext {
+        width: 120px;
+        line-height: 30px;
+        font-size: 14px;
+        color: #666;
+        text-align: right;
+        display: inline-block;
+    }
+    .input1{
+        border: 1px solid #ABABAB;
+        width: 240px;
+        height: 28px;
+        line-height: 28px;
+        padding: 0 5px 0 0;
+        margin: 0 10px 0 0;
+        background: url(../img/registerimg/iconSkin.png) repeat-x 0 -700px;
+    }
+    .input2 {
+        border: 1px solid #ABABAB;
+        width: 120px;
+        height: 28px;
+        line-height: 28px;
+        padding: 0 5px 0 0;
+        margin: 0 10px 0 0;
+        background: url(../img/registerimg/iconSkin.png) repeat-x 0 -700px;
+    }
+     .tips {
+        width: 305px;
+        margin-top: -2px;
+        display: inline-block;
+        color: #999;
+    }
+     .errorinfo {
+        height: 20px;
+        color: #F60;
+        display: block;
+        line-height: 20px;
+    }
+}
+.RG_sbox1 {
+    width: 743px;
+    padding-left: 15px;
+    padding-bottom: 30px;
+    background: url(../images/repeatYSkin.png) right 0 repeat-y;
+}
+.Lpt20 {
+    padding-top: 20px;
+}
+.Lmt10 {
+    margin-top: 10px;
+}
+.RG_title {
+    width: 700px;
+    font-size: 14px;
+    text-indent: 20px;
+    line-height: 30px;
+    margin-left: 15px;
+    border-bottom: 1px dotted #E6E6E6;
+}
+.Lfll {
+    float: left;
+}
+#form_div{
+    height: 305px;
+}
+.Lcfl {
+    clear: left;
+}
+.btn_sendmessage {
+    display: inline-block;
+    width: 152px;
+    height: 34px;
+    line-height: 34px;
+    cursor: pointer;
+    background: url(../img/loginimg/buttons.png) -226px -168px;
+}
+.btn_sendmessage:hover{
+    background: url(../img/loginimg/buttons.png) -226px -210px;
+}
+.rarea{
+    height: 305px;
+        width: 214px;
+    img{
+        height: 100%;
+        width: 100%;
+    }
+}
+.LI_bottom{
+    width: 980px;
+    clear: both;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 20px;
+    a{
+        color: #333;
+    }
+}

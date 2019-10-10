@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/cart.min.css">
+    <title>cart</title>
+</head>
+<body>
+        <div id = "nav">
+                <div id="navSon">
+                    <p>欢迎来到邦购网，全场实付满99元包邮，本网站多为断码限量商品，支持14天无理由退换货，不支持退差价，感谢理解。</p>
+                <ul id="list">
+                    <li id = "login"><a href = "login.html">登录</a>
+                        <ul id = "listSon">
+                            <li><a href="#">qq账户登陆</a></li>
+                            <li><a href="#">支付宝登陆</a></li>
+                            <li><a href="#">微信账户登陆</a></li>
+                        </ul>
+                    </li>
+                    <li><a href = "registor.html">注册</a></li>
+                    <li id="banggo"><a href = "login.html">我的邦购<i id="icon1"></i></a>
+                        <ul id="myBanggo">
+                            <li><a href="#">我的订单</a></li>
+                            <li><a href="#">我的点赞</a></li>
+                            <li><a href="#">我的积分</a></li>
+                            <li><a href="#">收货地址</a></li>
+                        </ul>
+                    </li>
+                    <li><a href = "https://www.banggo.com/theme/hyzx.shtml">会员中心</a></li>
+                    <li id="down"><a href = "https://www.banggo.com/Index/app"><img src="img/indeximg/img76.png">下载APP<i id="icon2"></i></a>
+                        <img id = "download" src="img/indeximg/img80.png"> 
+                    </li>
+                    <li><a href = "https://weibo.com/gobanggo?is_hot=1">微博</a></li>
+                    <li><a href = "login.html">微信</a></li>
+                </ul>    
+                </div>
+            </div>
+        <!-- logo -->
+        <div class="logo">
+            <a href="#">
+                    <img src="img/indeximg/img79.png">
+            </a>
+        </div>
+        <!-- 进度 -->
+        <div class="buy_speed">
+                <div class="speed">
+                        <span></span>
+                </div>
+        </div>
+        <!-- 购物袋 -->
+        <div class="cart_tab">
+            <div class="cart_tab_title">
+                购物袋
+            </div>
+        </div>
+        <!-- 列标 -->
+        <ol id="cartTop"></ol>
+        <!-- 商品部分 -->
+        <div class="mbshop_cart_1127_warp_box">
+                
+        </div>
+        
+        <!-- 最近浏览
+        <div class="mbshop_cartTabCon">
+            <div class="mbshop_cartTabList">
+                <ul>
+                    <li class="mbshop_cartTabOn" id="buyandbuy">买了又买</li>
+                    <li id="newlook" class="">最近浏览的商品</li>
+                </ul>
+            </div>
+            <div class="mbshop_cartTabBox"> -->
+                <!-- 买了又买 -->
+                <!-- <div class="mbshop_cartTabBoxCon" id="bought-Ctn">
+                    <div class="mbshop_cartRecArea" id="mbshop_cartRecArea0">
+                        <span class="mbshop_cartRecBtn_fl" title="向左"></span>
+                        <div class="mbshop_cartRecAreaList">
+                            <div class="mbshop_cartRecAreaCon">
+                                <ul>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="mbshop_cartRecBtn_fr" title="向右"></span>
+                    </div>
+                </div> -->
+                <!-- 最近浏览 -->
+                <!-- <div class="mbshop_cartTabBoxCon" id="goods-Ctn">
+                    <div class="mbshop_cartRecArea" id="mbshop_cartRecArea1">
+                        <span class="mbshop_cartRecBtn_fl" title="向左"></span>
+                        <div class="mbshop_cartRecAreaList">
+                            <div class="mbshop_cartRecAreaCon">
+                                <ul>
+                                    <li class="mbshop_cartListPdCon">
+                                        <a href="product.html">
+                                            <img src="img/cartimg/A03833_00.jpg">
+                                        </a>
+                                        <p class="mbshop_cartListPdText">基础纯棉男士休闲圆领短袖印花T恤</p>
+                                        <p class="mbshop_cartListPdText">
+                                            <b>￥29.00</b>
+                                            <i>￥188.00</i>
+                                            <a href="javascript:void(0);" class="veo_to_shop mbshop_cartAddItem">加入购物袋</a>
+                                        </p>
+                                    </li> 
+                                    <li class="mbshop_cartListPdCon">
+                                        <a href="product.html">
+                                            <img src="img/cartimg/A03833_00.jpg">
+                                        </a>
+                                        <p class="mbshop_cartListPdText">基础纯棉男士休闲圆领短袖印花T恤</p>
+                                        <p class="mbshop_cartListPdText">
+                                            <b>￥29.00</b>
+                                            <i>￥188.00</i>
+                                            <a href="javascript:void(0);" class="veo_to_shop mbshop_cartAddItem">加入购物袋</a>
+                                        </p>
+                                    </li> 
+                                    <li class="mbshop_cartListPdCon">
+                                        <a href="product.html">
+                                            <img src="img/cartimg/A03833_00.jpg">
+                                        </a>
+                                        <p class="mbshop_cartListPdText">基础纯棉男士休闲圆领短袖印花T恤</p>
+                                        <p class="mbshop_cartListPdText">
+                                            <b>￥29.00</b>
+                                            <i>￥188.00</i>
+                                            <a href="javascript:void(0);" class="veo_to_shop mbshop_cartAddItem">加入购物袋</a>
+                                        </p>
+                                    </li> 
+                                    <li class="mbshop_cartListPdCon">
+                                        <a href="product.html">
+                                            <img src="img/cartimg/A03833_00.jpg">
+                                        </a>
+                                        <p class="mbshop_cartListPdText">基础纯棉男士休闲圆领短袖印花T恤</p>
+                                        <p class="mbshop_cartListPdText">
+                                            <b>￥29.00</b>
+                                            <i>￥188.00</i>
+                                            <a href="javascript:void(0);" class="veo_to_shop mbshop_cartAddItem">加入购物袋</a>
+                                        </p>
+                                    </li> 
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="mbshop_cartRecBtn_fr" title="向右"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+         -->
+     <!-- 联系方式 -->
+    <div id = "infor">
+            <a href = "#"><img src="img/indeximg/img92.png" ></a>
+            <a href = "#"><img src="img/indeximg/img93.png" ></a>
+            <a href = "#"><img src="img/indeximg/img94.png" ></a>
+            <div id = "infor_tel">
+                <a href = "#"><img src="img/indeximg/img91.jpg" ></a>
+                <div>
+                        <li>
+                                <a href = "#"><img src="img/indeximg/img73.png" ></a>
+                                <span>在线客服</span>
+                        </li>
+                        <li>
+                                <a href = "#"><img src="img/indeximg/img74.png" ></a>
+                                <span>意见反馈</span>
+                        </li>
+                        <li>
+                                <a href = "#"><img src="img/indeximg/img75.png" ></a>
+                                <span>问卷调查</span>
+                        </li>
+                </div>
+                
+                    
+            </div>
+        </div>
+        <!-- 页脚 -->
+        <div id = "end">
+            <div id = "end_main">
+                <dl>
+                    <dt>新手指南</dt>
+                    <dd>
+                        <a href = "#">注册新用户</a>
+                    </dd>
+                    <dd>
+                        <a href = "#">用户协议</a>
+                    </dd>
+                    <dd>
+                        <a href = "#">找回密码</a>
+                    </dd>
+                </dl>
+                <dl>
+                        <dt>购物指南</dt>
+                        <dd>
+                            <a href = "#">红包使用说明</a>
+                        </dd>
+                        <dd>
+                            <a href = "#">购物流程</a>
+                        </dd>
+                        <dd>
+                            <a href = "#">订单状态</a>
+                        </dd>
+                        <dd>
+                            <a href = "#">邦购币邦定与使用</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>配送方式</dt>
+                        <dd>
+                            <a href = "#">配送范围</a>
+                        </dd>
+                        <dd>
+                            <a href = "#">订单拆分</a>
+                        </dd>
+                        <dd>
+                            <a href = "#">商品验货与签收</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>支付方式</dt>
+                        <dd>
+                            <a href = "#">发票制度</a>
+                        </dd>
+                        <dd>
+                            <a href = "#">支付方式</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>售后服务</dt>
+                        <dd>
+                            <a href = "#">退换货政策</a>
+                        </dd>
+                        <dd>
+                            <a href = "#">退换办理流程</a>
+                        </dd>
+                        <dd>
+                            <a href = "#">退款说明</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>联系方式</dt>
+                        <dd>
+                            <a href = "#">在线客服</a>
+                        </dd>
+                        <dd>
+                            <a href = "#">咨询电话：4008219988</a>
+                        </dd>
+                    </dl>
+               
+            </div>
+    
+        </div>
+        <div  id="foot">
+                <p>
+                        CopyRight © 2000-2019, 版权所有 上海美特斯邦威服饰股份有限公司 banggo.com 
+                        <a target="_blank" href="#" style = "color: #787878">沪ICP备05033127号</a>
+                        |沪ICP证B2-20150114 021-38119999  
+                        <a target="_blank" href="#" style = "color: #787878">营业执照</a>
+                </p>
+                <span>
+                    <a href = "#">
+                        <img src="img/indeximg/img77.png">
+                    </a>
+                    <a href = "#">
+                        <img src="img/indeximg/img78.png">
+                    </a>
+                    <a href = "#">
+                        <img src="img/indeximg/img68.jpg">
+                    </a>
+                </span>
+        </div>
+        
+        <div class="new_mbshop_topandconsult">
+            <a href="javascript:;" class="new_mbshop_btn_topred"></a>
+            <a href="javascript:;" class="mbshop_new_btn_onlineConsultred"></a>
+        </div>   
+   
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script>
+            $(window).scroll(function() {
+            var scrollValuex=parseInt($(document).scrollTop());
+            var floopyTopx=parseInt($(window).height());
+            if ((scrollValuex-floopyTopx)<100) {
+                $(".new_mbshop_btn_top,.new_mbshop_btn_topred").show();
+            }else{
+                $(".new_mbshop_btn_top,.new_mbshop_btn_topred").hide();
+            };
+            });
+            
+            $(".new_mbshop_btn_topred").click(function(){
+                var sc=$(window).scrollTop();
+                $('body,html').animate({scrollTop:0},500);
+            })
+        </script>
+    <script type="text/javascript">
+        let cookieStr = $.cookie('carts') ? $.cookie('carts') : '';
+        let cookieObj = convertJsonStrToJsonObj(cookieStr);
+        for (let key in cookieObj) {
+            let good = cookieObj[key];
+            let str1 = ` <ol id="mbshop_cart_1127_tab" name = "tag"> 
+                <li class="mbshop_cart_1127_01">
+                    <label class="mbshop_checkbox">
+                        <input type="checkbox" name="checkAll">
+                        <i class="iconfont"></i>
+                        <b>全选</b>
+                    </label>
+                </li>
+                <li class="mbshop_cart_1127_02">商品信息</li>
+                <li class="mbshop_cart_1127_03">颜色尺码</li>
+                <li class="mbshop_cart_1127_04">单价(元)</li>
+                <li class="mbshop_cart_1127_05">数量</li>
+                <li class="mbshop_cart_1127_06">小计</li>
+                <li class="mbshop_cart_1127_07">操作</li>
+            </ol>
+            `;
+            $('#cartTop').append(str1);
+            let str2 = `
+            <div class = "mbshopAll">
+            <div class="banggo_cart_tab">
+                <label class="mbshop_checkbox">
+                    <input name= "checkAll"   type="checkbox">
+                    <i class="iconfont iconfontselect"></i>
+                    <b>邦购</b>
+                </label>
+                <em id="ad_cart_text_ad">满99包邮</em>
+            </div>
+        </div>`;
+            $('.mbshop_cart_1127_warp_box').append(str2);
+            let str3 = `
+            
+                    <div class="mbshop_cart_1127_single_warp_box">
+		<!-- 赠品，优惠等标签所在盒子 -->
+		<!-- 此处，一个 UL 盒子，是一个商品 -->
+			<ul list-tag ="list" class="mbshop_cart_1127_single_goods goodInfo" data-good-id="${key}">
+				<!-- 选中按钮 -->
+				<li class="mbshop_cart_1127_single_01">
+					<p>
+						<label class="mbshop_checkbox mbshop_cart_allSelect_list">
+							<input type="checkbox"  name="status"  class="mbshop_cart_1127_single_goods_checkbox">
+							<i class="iconfont iconfontselect"></i>
+						</label>
+					</p>
+				</li>
+				<!-- 商品信息 -->
+				<li class="mbshop_cart_1127_single_02">
+					<dl>
+						<dt><a href="product.html"><img  src="img/cartimg/A03833_73_05.jpg"></a></dt>
+						<dd>
+							<a href="product.html"><p>${good.name}</p></a>
+							<i>商品编号：A03833</i>
+							
+						</dd>
+					</dl>
+				</li>
+				<!-- 颜色尺码 -->
+				<li class="mbshop_cart_1127_single_03">
+					<p>颜色：${good.color}</p>
+					<p>尺码：(${good.size})</p>
+				</li>
+				<!-- 单价 -->
+				<li class="mbshop_cart_1127_single_04">
+					<i>￥${good.priceH}</i>
+					<em>￥${good.priceL}</em>
+					
+				</li>
+				<!-- 数量 -->
+				<li class="mbshop_cart_1127_single_05">
+					<span name="num-edit-cut" class="mbshop_cart_1127_single_label_left">-</span>
+					<input type="text" value="${good.num}"  disabled class="mbshop_cart_1127_single_goods_num">
+					<span name="num-edit-add" class="mbshop_cart_1127_single_label_right" >+</span>
+					
+					
+				</li>
+				<!-- 优惠 -->
+				
+				<!-- 成交价 -->
+				<li class="mbshop_cart_1127_single_07">￥${good.priceL * good.num}</li>
+				<!-- 状态 -->
+				
+				<!-- 操作 -->
+				<li class="mbshop_cart_1127_single_09">
+					<a href="javascript:void(0);" class="in_favorites">移入我的点赞</a>
+					<a href="javascript:void(0);" class="delete_goods">删除</a>
+				</li>
+			</ul>
+			
+		
+    </div>`
+            
+            
+    $('.mbshopAll').append(str3);
+    let str4 = `<div class="go_to_balance_warp">
+		<div class="go_to_balance">
+			<div class="go_to_balance_left">
+				<label class="mbshop_checkbox">
+					<input name= "checkAll" storeType="" type="checkbox" />
+					<i class="iconfont iconfontselect"></i>
+					<b>全选</b>
+				</label>
+				<p id="deleteCheckbox" class="go_to_balance_left_del">删除选中商品</p>
+				<p id="cleanError" class="go_to_balance_left_clean">清除失效商品</p>
+				<p class="go_to_balance_left_total">合计(不含运费)：<i id = "all_price_no">￥${good.priceL * good.num}</i></p>
+				<p class="go_to_balance_left_alg">商品总价<i id = "all_price">￥${good.priceL * good.num}</i> - 优惠<em>￥0</em></p>
+				<p class="go_to_balance_left_have">已选商品<em id ="all_shop">${good.num}</em>件</p>
+			</div>
+			<a href="javascript:void(0);" class="go_to_balance_right mbshop_cartPayBill">去结算</a>
+		</div>
+    </div>`
+    $('.mbshop_cart_1127_warp_box').append(str4);
+    
+        }
+        function convertJsonStrToJsonObj(str) {
+            if (!str) {
+                return {};
+            }
+            return JSON.parse(str);
+        }
+
+        //加号
+        let $plus = $('.mbshop_cart_1127_single_label_right');
+        $.each($plus, (index, value) => {
+            $(value).click(function() {
+                let id = $(this).parents('.goodInfo').attr('data-good-id');
+                let cookieStr = $.cookie('carts') ? $.cookie('carts') : '';
+                let cookieObj = convertJsonStrToJsonObj(cookieStr);
+                cookieObj[id].num++;
+                $.cookie('carts', JSON.stringify(cookieObj), {
+                    expires: 7,
+                    path: '/'
+                });
+                $(this).prev().val(cookieObj[id].num);
+                $(this).parent().next().html("￥"+cookieObj[id].priceL * cookieObj[id].num);
+                $('#all_price').html("￥"+cookieObj[id].priceL * cookieObj[id].num);
+                $('#all_price_no').html("￥"+cookieObj[id].priceL * cookieObj[id].num);
+                
+                $('#all_shop').html(cookieObj[id].num);
+            })
+        })
+        //减号
+        let $minus = $('.mbshop_cart_1127_single_label_left');
+        $minus.each((index, value) => {
+            $(value).click(function() {
+                let id = $(this).parents('.goodInfo').attr('data-good-id');
+                let cookieStr = $.cookie('carts') ? $.cookie('carts') : '';
+                let cookieObj = convertJsonStrToJsonObj(cookieStr);
+                if (cookieObj[id].num > 1) {
+                    cookieObj[id].num--;
+                }
+                $.cookie('carts', JSON.stringify(cookieObj), {
+                    expires: 7,
+                    path: '/'
+                });
+                $(this).next().val(cookieObj[id].num);
+                $(this).parent().next().html("￥"+cookieObj[id].priceL * cookieObj[id].num);
+                $('#all_price').html("￥"+cookieObj[id].priceL * cookieObj[id].num);
+                $('#all_price_no').html("￥"+cookieObj[id].priceL * cookieObj[id].num);
+                $('#all_shop').html(cookieObj[id].num);
+            })
+        })
+        // 删除
+        let $del = $('.delete_goods');
+        $del.each((index, value) => {
+            $(value).click(function() {
+                let id = $(this).parents('.goodInfo').attr('data-good-id');
+                let cookieStr = $.cookie('carts') ? $.cookie('carts') : '';
+                let cookieObj = convertJsonStrToJsonObj(cookieStr);
+                delete cookieObj[id];
+                $.cookie('carts', JSON.stringify(cookieObj), {
+                    expires: 7,
+                    path: '/'
+                });
+                $(this).parents('.goodInfo').remove();
+                $('.go_to_balance_warp,#mbshop_cart_1127_tab,.mbshopAll').remove();
+                let str5 = `<div class="mbshop_container" style='display:block;' id = "cartEmpty">
+                    <div class="mbshop_cartico"></div>
+                    <div class="mbshop_cartnone">
+                        <b>您的购物袋还是空的，赶紧行动吧！您可以：</b><br>
+                        <a href="index.html">挑选商品</a>，或查看
+                        <a href="javascript:;">我的收藏夹</a><br>
+                            您可能还未登录导致购物袋的商品无法显示，马上 
+                        <a href="login.html">登录</a>
+                        
+                    </div>
+                </div>`
+       
+
+        if(!$.contains($(".mbshop_cart_1127_warp_box")[0],$(".mbshop_cart_1127_single_warp_box")[0])){
+            $(".mbshop_cart_1127_warp_box").append(str5);
+        }
+                
+            })
+        })
+        
+
+        
+    </script>
+    
+</body>
+</html>

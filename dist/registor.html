@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/register.min.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <title>register</title>
+</head>
+<body>
+    <!-- 头部 -->
+    <div class="login_head">
+        <a href="index.html"></a>
+    </div>
+    <!-- 头部结束 -->
+    <div class="RG_type Lmt10 Cwrap">
+        <div class="Cwrap Lovh" id="changetab">
+            <a id="mobile" class="cstyle">手机注册</a>
+        </div>
+    </div>
+    <!-- 注册 -->
+    <div class="RG_mbox Cwrap Lmt10 Lovh" id="form_div">
+        <div class="RG_sbox1 Lfll Lpt20 Lovh" id="mobile_div">
+            <div class="RG_title">
+                    第一步：填写手机账户信息（以下内容均为必填）
+            </div>
+            <form name="mobile_form" id="mobile_form" method ="POST" action>
+                <div class="item Lovh Lmt15">
+                    <div class="ltext Lfll">用户名：</div>
+                    <div class="Lfll">
+                        <input type="text" id="mobileusername" name="uid" class="input1 Lfll">
+                        <span class="tips">4-20个字符，一个汉字为两个字符，推荐使用中文会会员名字。一旦注册成功会员名将不能修改。</span>
+                        <span id="mobile_user_message" class="errorinfo Lcfl">&nbsp;</span>
+                    </div>
+                </div>
+                <div class="item Lovh Lmt15">
+                    <div class="ltext Lfll">密码：</div>
+                    <div class="Lfll">
+                        <input type="text" id="mobileNumber" name="uid" class="input1 Lfll">
+                        <span class="tips">请输入您的密码。</span>
+                        <span id="mobileNumber_message" class="errorinfo Lcfl">&nbsp;</span>
+                    </div>
+                </div>
+                <div class="item Lovh">
+						<div class="ltext Lfll">验证码：</div>
+						<div class="Lfll">
+							<input type="text" maxlength="4" name="codeNumber" class="input2 Lfll" id="img1Code"> 
+							<span id="mySpan2">
+								<img align="middle" id="img1" class="change_img" src="img/loginimg/loginCode.jpg" /> 
+								<a onclick="changeImg('img2')">换一张</a>
+							</span> 
+							<br /> 
+							<span id="img1_message" class="errorinfo Lcfl"></span>
+						</div>
+                    </div>
+                    <div class="item Lovh">
+                        <div class="ltext Lfll">&nbsp;</div>
+                        <a class="btn btn_sendmessage  Lfll Lmr20" id = "go" ></a>
+                    </div>
+            </form>
+        </div>
+        <div class="rarea Lfll">
+            <img src="img/registerimg/bgowelcometext.png">
+        </div>
+    </div>
+    <div class="LI_bottom">
+        美特斯邦威集团网站：
+        <a href="http://www.metersbonwe.com/">美特斯邦威</a> |
+        <a href="http://www.me-city.com/">ME&CITY</a> |
+        <a href="http://www.chincn.com/">CH'IN祺</a> |
+        <!-- <a href="http://www.myfstv.com/">时尚秘书</a> | -->
+        <a href="https://www.banggo.com">邦购网</a>
+    </div>
+
+    <script>
+        // 用户名验证
+        let isValid  =false;
+        // 用户名验证函数
+        let userNameCheck = function(obj){
+                var vkey=$('#vKey').val();
+                let inputID =  obj.data.inputID;
+                let messageID = obj.data.messageID;
+                let myreg = /^[a-zA-Z|\u4e00-\u9fa5]+[\u4e00-\u9fa5\w\d]+$/;
+            if($('#' + inputID).val() == "" || $('#' + inputID).length == 0){
+                showText(messageID,"用户名不能为空","red");
+                return false;
+            }else if(lenReg($('#'+inputID).val()) < 4 || lenReg($('#'+inputID).val()) > 20){
+            	showText(messageID,"用户名只能为4~20个字符,一个汉字为两个字符",'red');
+            	// validUserName = false;
+           		return false;
+       		}else if(!myreg.test($('#'+inputID).val())){
+                showText(messageID,"以中、英文开头，与数字、下划线组成",'red');
+                //validUserName = false;
+                return false;
+         	}else{
+                showText(messageID,"用户名可用","green");
+                return true;
+            }
+        }
+        
+        // 创建手机用户对象
+        var mobileUserObj = new Object();
+		mobileUserObj.inputID = 'mobileusername';
+       	mobileUserObj.messageID = 'mobile_user_message';
+       	$("#mobileusername").bind("blur",mobileUserObj,userNameCheck );
+
+        // 密码验证
+        var pwdCheck = function(obj){
+	     	var inputID = obj.data.inputID;
+	    	var messageID = obj.data.messageID;
+	          
+	    	var lrtrim=/^\s+|\s+$/g;
+	     	if(lrtrim.test($('#'+inputID).val())){
+                showText(messageID,"密码前后不能有空格",'red');
+           		return false;
+			}
+	 
+      		if($('#'+inputID).val() == "" || $('#'+inputID).val().length == 0){
+            	showText(messageID,"密码不能为空",'red');
+            	return false;
+       		}else if($('#'+inputID).val().length < 6 || $('#'+inputID).val().length > 16){
+	        	showText(messageID,"密码长度只能为6~16",'red');
+	          	return false;
+     		}else{
+                showText(messageID,"密码可用",'green');
+            }
+            
+        	
+		}
+        // 创建密码对象
+        var mobileNumberObj = new Object();
+		mobileNumberObj.inputID = 'mobileNumber';
+        mobileNumberObj.messageID = 'mobileNumber_message';
+       	$("#mobileNumber").bind("blur",mobileNumberObj,pwdCheck );
+        
+        // 验证码验证
+        $("#img1Code").blur(function (){
+               if($('#img1Code').val()==""||$('#img1Code').val().length==0){
+                      showText("img1_message","验证码不能为空",'red');
+                      return false;
+                 }
+              else {
+              validCode=true;
+               showText("img1_message","",'green');
+              }
+		})
+		
+        
+        
+        // cookie
+         $('#go').click(function(){
+            let upwd = $('#mobileNumber').val();
+            let uname = $('#mobileusername').val();
+
+            let cookieStr = $.cookie('registors') ? $.cookie('registors') : '';
+            let cookieObj = convertCookieStrToCookieObj(cookieStr);
+
+            if (uname in cookieObj) {
+                alert('用户名已存在！');
+                return;
+            } else {
+                cookieObj[uname] = upwd;
+                location.href = "login.html";
+            }
+            //创建cookie
+            $.cookie('registors', JSON.stringify(cookieObj), {
+                expires: 7,
+                path: '/'
+            });
+            
+        })
+        
+        
+         
+            
+        
+
+
+        // 工具
+        // 一个汉字为两个字符
+        let lenReg = function(str){
+            return str.replace(/[^\x00-\xFF]/g,"**").length;
+        }
+        // 信息提示
+        function showText(showTargetId,message,color){
+            $("#"+showTargetId).html("<font color='"+color+"'>"+message+"</font>");
+           }
+        // 
+        function convertCookieStrToCookieObj(str) {
+            if (!str) {
+                return {};
+            }
+            return JSON.parse(str);
+        }
+        
+    </script>
+</body>
+</html>

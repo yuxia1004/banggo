@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/list.min.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <style>
+        /* 外面盒子样式---自己定义 */
+        .page_div{margin:33px auto 0;color:#666;width: 657px;clear: both;height: 28px;}
+        /* 页数按钮样式 */
+        .page_div button{display:inline-block;min-width:30px;height:28px;cursor:pointer;color:#666;font-size:13px;line-height:28px;background-color:#f9f9f9;border:1px solid #dce0e0;text-align:center;margin:0 4px;-webkit-appearance: none;-moz-appearance: none;appearance: none;}
+        #firstPage,#lastPage,#nextPage,#prePage{width:50px;color:#0073A9;border:1px solid #0073A9}
+        #nextPage,#prePage{width:70px}
+        .page_div .current{background-color:#0073A9;border-color:#0073A9;color:#FFF}
+        /* 页面数量 */
+        .totalPages{margin:0 10px}
+        .totalPages span,.totalSize span{color:#0073A9;margin:0 5px}
+        /*button禁用*/
+        .page_div button:disabled{opacity:.5;cursor:no-drop}
+    </style>
+    <title>list</title>
+</head>
+<body>
+        <div id = "nav">
+                <div id="navSon">
+                    <p>欢迎来到邦购网，全场实付满99元包邮，本网站多为断码限量商品，支持14天无理由退换货，不支持退差价，感谢理解。</p>
+                <ul id="list">
+                    <li id = "login"><a href = "login.html">登录</a>
+                        <ul id = "listSon">
+                            <li><a href="#">qq账户登陆</a></li>
+                            <li><a href="#">支付宝登陆</a></li>
+                            <li><a href="#">微信账户登陆</a></li>
+                        </ul>
+                    </li>
+                    <li><a href = "registor.html">注册</a></li>
+                    <li id="banggo"><a href = "login.html">我的邦购<i id="icon1"></i></a>
+                        <ul id="myBanggo">
+                            <li><a href="#">我的订单</a></li>
+                            <li><a href="#">我的点赞</a></li>
+                            <li><a href="#">我的积分</a></li>
+                            <li><a href="#">收货地址</a></li>
+                        </ul>
+                    </li>
+                    <li><a href = "https://www.banggo.com/theme/hyzx.shtml">会员中心</a></li>
+                    <li id="down"><a href = "https://www.banggo.com/Index/app"><img src="img/indeximg/img76.png">下载APP<i id="icon2"></i></a>
+                        <img id = "download" src="img/indeximg/img80.png"> 
+                    </li>
+                    <li><a href = "https://weibo.com/gobanggo?is_hot=1">微博</a></li>
+                    <li><a href = "login.html">微信</a></li>
+                </ul>    
+                </div>
+            </div>
+            <!-- logo -->
+            <div id="logo">
+                <a href="https://www.banggo.com" id="pic">
+                    <img src="img/indeximg/img79.png">
+                </a>
+                <div id = "find_border">
+                    <input type="text" id="input-text" autocomplete="off" maxlength="70">
+                    <input type="submit" id="but" title="搜索" value="搜索">
+                    <i id="find"></i>
+                </div>
+                
+                <ul id="class">
+                    <li><a href = "#">卫衣</a></li>
+                    <li><a href = "#">衬衫</a></li>
+                    <li><a href = "#">外套</a></li>
+                    <li id="last"><a href = "#">牛仔裤</a></li>
+                </ul>
+                <div id="cart-div">
+                    <a href="cart.html">
+                     <i id="cart"></i>
+                     <p>购物袋&nbsp;<span>0</span>&nbsp;件</p>
+                    </a>
+                </div>
+            </div>
+    <!-- 导航栏 -->
+    <div id="main_head">
+        <div id="main">
+            <ul id="main-nav">
+                <li>首页</li>
+                <li class = "menu mrc">
+                    <a id = "cate" href = "#">男装</a>
+                    <div class ="menu_down mrc_menu">
+                        <div class="category">
+                            <dt>
+                                <a href = "#">上装</a>
+                            </dt>
+                            <a href="#">短袖T恤</a>
+                            <a href="#">短袖衬衫</a>
+                            <a href="#">长袖T恤</a>
+                            <a href="#">长袖衬衫</a>
+                            <a href="#">卫衣</a>
+                            <a href="#">夹克</a>
+                            <a href="#">毛衣</a>
+                            <a href="#">西装</a>
+                            <a href="#">风衣</a>
+                            <a href="#">大衣</a>
+                            <a href="#">羽绒服</a>
+                        </div>
+                        <div class="category">
+                                <dt>
+                                    <a href = "#">下装</a>
+                                </dt>
+                                <a href="#">牛仔中短裤</a>
+                                <a href="#">休闲中短裤</a>
+                                <a href="#">针织中短裤</a>
+                                <a href="#">牛仔长裤</a>
+                                <a href="#">休闲长裤</a>
+                                <a href="#">针织休闲裤</a>
+                                <a href="#">西裤</a>
+                        </div>
+                    </div>
+                </li>
+                <li class = "menu miss">
+                    <a href = "#">女装</a>
+                    <div class ="menu_down miss_menu">
+                        <div class="category">
+                            <dt>
+                                <a href = "#">上装</a>
+                            </dt>
+                            <a href="#">短袖T恤</a>
+                            <a href="#">短袖衬衫</a>
+                            <a href="#">长袖T恤</a>
+                            <a href="#">长袖衬衫</a>
+                            <a href="#">卫衣</a>
+                            <a href="#">夹克</a>
+                            <a href="#">毛衣</a>
+                            <a href="#">西装</a>
+                            <a href="#">风衣</a>
+                            <a href="#">大衣</a>
+                            <a href="#">羽绒服</a>
+                        </div>
+                        <div class="category">
+                                <dt>
+                                    <a href = "#">下装</a>
+                                </dt>
+                                <a href="#">牛仔中短裤</a>
+                                <a href="#">休闲中短裤</a>
+                                <a href="#">针织中短裤</a>
+                                <a href="#">牛仔长裤</a>
+                                <a href="#">休闲长裤</a>
+                                <a href="#">针织休闲裤</a>
+                                <a href="#">西裤</a>
+                        </div>
+                        <div class="category">
+                                <dt>
+                                    <a href = "#">裙装</a>
+                                </dt>
+                                <a href="#">牛仔中短裤</a>
+                                <a href="#">休闲中短裤</a>
+                                <a href="#">针织中短裤</a>
+                                <a href="#">牛仔长裤</a>
+                                <a href="#">休闲长裤</a>
+                                <a href="#">针织休闲裤</a>
+                                <a href="#">西裤</a>
+                        </div>
+                        <div class="category">
+                                <dt>
+                                    <a href = "#">内衣</a>
+                                </dt>
+                                <a href="#">牛仔中短裤</a>
+                                <a href="#">休闲中短裤</a>
+                                <a href="#">针织中短裤</a>
+                                <a href="#">牛仔长裤</a>
+                                <a href="#">休闲长裤</a>
+                                <a href="#">针织休闲裤</a>
+                                <a href="#">西裤</a>
+                        </div>
+                    </div>
+                </li>
+                <li class = "menu child">
+                    <a href = "#">儿童</a>
+                    <div class ="menu_down child_menu">
+                            <div class="category">
+                                <dt>
+                                    <a href = "#">男童</a>
+                                </dt>
+                                <a href="#">短袖T恤</a>
+                                <a href="#">短袖衬衫</a>
+                                <a href="#">长袖T恤</a>
+                                <a href="#">长袖衬衫</a>
+                                <a href="#">卫衣</a>
+                                <a href="#">夹克</a>
+                                <a href="#">毛衣</a>
+                            </div>
+                            <div class="category">
+                                    <dt>
+                                        <a href = "#">女童</a>
+                                    </dt>
+                                    <a href="#">牛仔中短裤</a>
+                                    <a href="#">休闲中短裤</a>
+                                    <a href="#">针织中短裤</a>
+                                    <a href="#">牛仔长裤</a>
+                                    <a href="#">休闲长裤</a>
+                                    <a href="#">针织休闲裤</a>
+                                    <a href="#">西裤</a>
+                            </div>
+                            <div class="category">
+                                    <dt>
+                                        <a href = "#">婴幼童</a>
+                                    </dt>
+                                    <a href="#">牛仔中短裤</a>
+                                    <a href="#">休闲中短裤</a>
+                                    <a href="#">针织中短裤</a>
+                                    <a href="#">牛仔长裤</a>
+                                    <a href="#">休闲长裤</a>
+                                    <a href="#">针织休闲裤</a>
+                                    <a href="#">西裤</a>
+                            </div>
+                        </div>
+                </li>
+                <li class= "menu shoe">
+                    <a href = "#">鞋履</a>
+                    <div class ="menu_down shoe_menu">
+                            <div class="category">
+                                <dt>
+                                    <a href = "#">男童</a>
+                                </dt>
+                                <a href="#">短袖T恤</a>
+                                <a href="#">短袖衬衫</a>
+                                <a href="#">长袖T恤</a>
+                                <a href="#">长袖衬衫</a>
+                                <a href="#">卫衣</a>
+                                <a href="#">夹克</a>
+                                <a href="#">毛衣</a>
+                            </div>
+                            <div class="category">
+                                    <dt>
+                                        <a href = "#">女童</a>
+                                    </dt>
+                                    <a href="#">牛仔中短裤</a>
+                                    <a href="#">休闲中短裤</a>
+                                    <a href="#">针织中短裤</a>
+                                    <a href="#">牛仔长裤</a>
+                                    <a href="#">休闲长裤</a>
+                                    <a href="#">针织休闲裤</a>
+                                    <a href="#">西裤</a>
+                            </div>
+                        </div>
+                </li>
+                <li class = "menu box">
+                    <a href = "#">箱包</a>
+                    <div class ="menu_down box_menu">
+                            <div class="category">
+                                <dt>
+                                    <a href = "#">男童</a>
+                                </dt>
+                                <a href="#">短袖T恤</a>
+                                <a href="#">短袖衬衫</a>
+                                <a href="#">长袖T恤</a>
+                                <a href="#">长袖衬衫</a>
+                                <a href="#">卫衣</a>
+                                <a href="#">夹克</a>
+                                <a href="#">毛衣</a>
+                            </div>
+                            <div class="category">
+                                    <dt>
+                                        <a href = "#">女童</a>
+                                    </dt>
+                                    <a href="#">牛仔中短裤</a>
+                                    <a href="#">休闲中短裤</a>
+                                    <a href="#">针织中短裤</a>
+                                    <a href="#">牛仔长裤</a>
+                                    <a href="#">休闲长裤</a>
+                                    <a href="#">针织休闲裤</a>
+                                    <a href="#">西裤</a>
+                            </div>
+                        </div>
+                </li>
+                <li class = "menu acc">
+                    <a href = "#">配饰</a>
+                    <div class ="menu_down acc_menu">
+                            <div class="category">
+                                <dt>
+                                    <a href = "#">男童</a>
+                                </dt>
+                                <a href="#">短袖T恤</a>
+                                <a href="#">短袖衬衫</a>
+                                <a href="#">长袖T恤</a>
+                                <a href="#">长袖衬衫</a>
+                                <a href="#">卫衣</a>
+                                <a href="#">夹克</a>
+                                <a href="#">毛衣</a>
+                            </div>
+                    
+                        </div>
+                </li>
+            </ul>
+            <ul id="main_img">
+                <li><a href = "#"><img src="img/indeximg/img85.png"></a></li>
+                <li><a href = "#"><img src="img/indeximg/img87.png"></a></li>
+                <li><a href = "#"><img src="img/indeximg/img86.png"></a></li>
+                <li><a href = "#"><img src="img/indeximg/img88.gif"></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 搜索 -->
+        <div id="listBreadNav">
+            <!-- 面包屑导航 -->
+            <div id = "mbshop_breadNavLink">
+                <a href="index.html">邦购网首页</a>
+                >
+                <a href="#">所有分类</a>
+                >
+                <a href = "#">男装</a>
+                >
+                <a href = "#">T恤</a>
+            </div>
+            <div id = "mbshop_search">
+                <input type="text" id="search_text" value autocomplete="off">
+                <input type="button" id = "search">
+            </div>
+        </div>
+    <!-- 列表 -->
+    <div id="container">
+        <div id="lt_box">
+            <h1>分类</h1>
+            <ul>
+                <li><a href = "#">POLO</a></li>
+                <li><a href = "#">长袖T恤</a></li>
+                <li><a href = "#">短袖T恤</a></li>
+            </ul>
+        </div>
+        <div id="rt_box">
+            <div id="searchOption">
+                    <div class ="searchItem">
+                        <span class="searchItem_tit">品牌</span>
+                        <div class = "searchContent">
+                            <a href="#">Metersbonwe</a>
+                            <a href="#">米郎骑士</a>
+                            <a href="#">ME＆CITY</a>
+                            <a href="#">乐麦尚品</a>
+                            <a href="#">凡洛</a>
+                            <a href="#">CHOKNESS</a>
+                            <a href="#">Pioneer Camp拓路者</a>
+                            <a href="#">倍纳达</a>
+                            <a href="#">亦思哲</a>
+                            <a href="#">潮流前线</a>
+                        </div>
+                        <div id="searchMuch">更多</div>
+                    </div>
+                    <div class ="searchItem">
+                        <span class="searchItem_tit">价格</span>
+                        <div class = "searchContent">
+                            <a href="#"><i>0-69</i></a>
+                            <a href="#"><i>70-139</i></a>
+                            <a href="#"><i>140-599</i></a>
+                            <div id = "pricequjian">
+                                <input type="text" id = "start" value>
+                                <b> - </b>
+                                <input type="text" id="end" value>
+                                <input type="button" id = "sure" value="确认">
+                            </div>
+                        </div>
+                    </div>
+                    <div class ="searchItem">
+                        <span class="searchItem_tit">尺寸</span>
+                        <div class = "searchContent">
+                            <a href="#"><i>160</i></a>
+                            <a href="#"><i>165</i></a>
+                            <a href="#"><i>170</i></a>
+                            <a href="#"><i>175</i></a>
+                            <a href="#"><i>180</i></a>
+                            <a href="#"><i>185</i></a>
+                            <a href="#"><i>190</i></a>
+                            <a href="#"><i>其它</i></a>
+                            <a href="#"><i>XL</i></a>
+                            <a href="#"><i>XXL</i></a>
+                            <a href="#"><i>S</i></a>
+                            <a href="#"><i>33(2尺6)</i></a>
+                        </div>
+                    </div>
+                    <div class ="searchItem">
+                        <span class="searchItem_tit">性别</span>
+                        <div class = "searchContent">
+                            <a href="#"><i>男</i></a>
+                            <a href="#"><i>其它</i></a>
+                            <a href="#"><i>女</i></a>
+                        </div>
+                    </div>
+                    <div class = "seach_box">
+                        <b>高级筛选</b>
+                        <div class="search_attribute">
+                            <div class="search_attribute_option">
+                                <div class="search_attribute_optionmenu">
+                                    <i>季节</i>
+                                    <em></em>
+                                    <div class="search_attribute_box">
+                                        <a href="#">夏</a>
+                                        <a href="#">秋</a>
+                                        <a href="#">秋</a>
+                                        <a href="#">常年款</a>
+                                        <a href="#">冬</a>
+                                        <a href="#" class="box_all">全部季节</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_attribute">
+                            <div class="search_attribute_option">
+                                <div class="search_attribute_optionmenu">
+                                    <i>场合</i>
+                                    <em></em>
+                                    <div class="search_attribute_box">
+                                        <a href="#">休闲</a>
+                                        <a href="#">都市</a>
+                                        <a href="#">潮流</a>
+                                        <a href="#">复古</a>
+                                        <a href="#">校园</a>
+                                        <a href="#">运动户外</a>
+                                        <a href="#">摇滚</a>
+                                        <a href="#">街头</a>
+                                        <a href="#">日韩</a>
+                                        <a href="#">简约</a>
+                                        <a href="#">欧美</a>
+                                        <a href="#">情侣</a>
+                                        <a href="#">OL通勤</a>
+                                        <a href="#">聚会</a>
+                                        <a href="#">旅游</a>
+                                        <a href="#">商务</a>
+                                        <a href="#" class="box_all">全部场合</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                <div class="search_attribute">
+                        <div class="search_attribute_option">
+                            <div class="search_attribute_optionmenu">
+                                <i>系列</i>
+                                <em></em>
+                                <div class="search_attribute_box">
+                                    <a href="#">休闲</a>
+                                    <a href="#">其它</a>
+                                    <a href="#">潮流</a>
+                                    <a href="#">MTEE</a>
+                                    <a href="#">基本</a>
+                                    <a href="#">都市</a>
+                                    <a href="#" class="box_all">全部系列</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_attribute">
+                            <div class="search_attribute_option">
+                                <div class="search_attribute_optionmenu">
+                                    <i>版型</i>
+                                    <em></em>
+                                    <div class="search_attribute_box">
+                                        <a href="#">修身</a>
+                                        <a href="#">宽松</a>
+                                        <a href="#">标准</a>
+                                        <a href="#" class="box_all">全部版型</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_attribute">
+                                <div class="search_attribute_option">
+                                    <div class="search_attribute_optionmenu">
+                                        <i>颜色</i>
+                                        <em></em>
+                                        <div class="search_attribute_box">
+                                            <a href="#">
+                                                <b class = "colorblock_1"></b>
+                                                白色系
+                                            </a>
+                                            <a href="#">
+                                                <b class = "colorblock_2"></b>
+                                                黑色系
+                                            </a>
+                                            <a href="#">
+                                                <b class = "colorblock_3"></b>
+                                                灰色系
+                                            </a>
+                                            <a href="#">
+                                                <b class = "colorblock_4"></b>
+                                                蓝色系
+                                            </a>
+                                            <a href="#">
+                                                <b class = "colorblock_5"></b>
+                                                卡其系
+                                            </a>
+                                            <a href="#">
+                                                <b class = "colorblock_6"></b>
+                                                红色系
+                                            </a>
+                                            <a href="#">
+                                                <b class = "colorblock_7"></b>
+                                                黄色系
+                                            </a>
+                                            <a href="#">
+                                                <b class = "colorblock_8"></b>
+                                                绿色系
+                                            </a>
+                                            <a href="#">
+                                                <b class = "colorblock_9"></b>
+                                                紫色系
+                                            </a>
+                                            <a href="#">
+                                                <b class = "colorblock_10"></b>
+                                                杏色系
+                                            </a>
+                                            <a href="#">
+                                                <b class = "colorblock_11"></b>
+                                                粉色系
+                                            </a>
+                                            <a href="#">
+                                                <b class = "colorblock_12"></b>
+                                                红色系
+                                            </a>
+                                            <a href="#">
+                                                <b class = "colorblock_13"></b>
+                                                橙色系
+                                            </a>
+                                            <a href="#">
+                                                <b class = "colorblock_14"></b>
+                                                棕色系
+                                            </a>
+                                            <a href="#" class="box_all">全部颜色</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+            <!-- 找到商品提示 -->
+            <div id="searchAlert">
+                为您找到<b>3688</b>个商品
+            </div>
+            <!-- 商品排序 -->
+            <div id = "pdFilter">
+                <div id="pd_left">
+                    <a id="def" href="#">默 认</a>
+                    <a class="bac" href="#">新品</a>
+                    <a class="bac" href="#">销量</a>
+                    <a href="#">折扣</a>
+                    <a href="#">价格</a>
+                </div>
+                <div id = "pd_right">
+                    <div id="page">
+                        <b>1/93</b>
+                        页&nbsp;共
+                        <b>&nbsp;3688&nbsp;</b>
+                        个商品&nbsp;
+                        <a href = "#">下一页</a>
+                    </div>
+                    <div id="check">
+                        <label>
+                            <input type="radio" id="style" name="searchType" value="1" checked>
+                            <span style="cursor:pointer">款式</span>
+                        </label>
+                        <label>
+                            <input type="radio" id="color" name="searchType" value="2" checked>
+                            <span style="cursor:pointer">色系</span>
+                        </label>
+                        &nbsp;&nbsp;
+                        <label>
+                            <input type="checkbox" id="checkstock" >
+                            <span style="cursor:pointer">仅显示有货</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- 商品区 -->
+            <div id="pdlist">
+                <ul id="pdListBox">
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="pdCon">
+                        <a href="product.html">
+                            <img class = "pro_1" src="img/listing/img1.jpg">
+                            <img class = "pro_2" src="img/listing/img2.jpg">
+                            <img class = "pro_3" src="img/listing/img4.jpg">
+                            <img class = "pro_4" src="img/listing/img3.jpg">
+                        </a>
+                        <span class="pd_brandname">
+                            <a href="#">米郎骑士</a>
+                            <label class="pd_discount">1.5折</label>
+                        </span>
+                        <span class="pd_name">
+                            <a href="#">基础纯棉男士休闲圆领短袖印花T恤</a>
+                        </span>
+                        <span class="pd_price">
+                            <b>¥29</b>
+                            <i>¥188</i>
+                        </span>
+                        <!-- 颜色选择 -->
+                        <div class="pd_color">
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_1" src="img/listing/img8.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_2" src="img/listing/img5.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img class = "procheck_3" src="img/listing/img6.jpg">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img  class = "procheck_4" src="img/listing/img7.jpg">
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 分页 -->
+    <div id="pageTab" class="page_div"></div>
+     <!-- 联系方式 -->
+     <div id = "infor">
+        <a href = "#"><img src="img/indeximg/img92.png" ></a>
+        <a href = "#"><img src="img/indeximg/img93.png" ></a>
+        <a href = "#"><img src="img/indeximg/img94.png" ></a>
+        <div id = "infor_tel">
+            <a href = "#"><img src="img/indeximg/img91.jpg" ></a>
+            <div>
+                    <li>
+                            <a href = "#"><img src="img/indeximg/img73.png" ></a>
+                            <span>在线客服</span>
+                    </li>
+                    <li>
+                            <a href = "#"><img src="img/indeximg/img74.png" ></a>
+                            <span>意见反馈</span>
+                    </li>
+                    <li>
+                            <a href = "#"><img src="img/indeximg/img75.png" ></a>
+                            <span>问卷调查</span>
+                    </li>
+            </div>
+            
+                
+        </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <div id = "end">
+        <div id = "end_main">
+            <dl>
+                <dt>新手指南</dt>
+                <dd>
+                    <a href = "#">注册新用户</a>
+                </dd>
+                <dd>
+                    <a href = "#">用户协议</a>
+                </dd>
+                <dd>
+                    <a href = "#">找回密码</a>
+                </dd>
+            </dl>
+            <dl>
+                    <dt>购物指南</dt>
+                    <dd>
+                        <a href = "#">红包使用说明</a>
+                    </dd>
+                    <dd>
+                        <a href = "#">购物流程</a>
+                    </dd>
+                    <dd>
+                        <a href = "#">订单状态</a>
+                    </dd>
+                    <dd>
+                        <a href = "#">邦购币邦定与使用</a>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>配送方式</dt>
+                    <dd>
+                        <a href = "#">配送范围</a>
+                    </dd>
+                    <dd>
+                        <a href = "#">订单拆分</a>
+                    </dd>
+                    <dd>
+                        <a href = "#">商品验货与签收</a>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>支付方式</dt>
+                    <dd>
+                        <a href = "#">发票制度</a>
+                    </dd>
+                    <dd>
+                        <a href = "#">支付方式</a>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>售后服务</dt>
+                    <dd>
+                        <a href = "#">退换货政策</a>
+                    </dd>
+                    <dd>
+                        <a href = "#">退换办理流程</a>
+                    </dd>
+                    <dd>
+                        <a href = "#">退款说明</a>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>联系方式</dt>
+                    <dd>
+                        <a href = "#">在线客服</a>
+                    </dd>
+                    <dd>
+                        <a href = "#">咨询电话：4008219988</a>
+                    </dd>
+                </dl>
+           
+        </div>
+
+    </div>
+    <div  id="foot">
+            <p>
+                    CopyRight © 2000-2019, 版权所有 上海美特斯邦威服饰股份有限公司 banggo.com 
+                    <a target="_blank" href="#" style = "color: #787878">沪ICP备05033127号</a>
+                    |沪ICP证B2-20150114 021-38119999  
+                    <a target="_blank" href="#" style = "color: #787878">营业执照</a>
+            </p>
+            <span>
+                <a href = "#">
+                    <img src="img/indeximg/img77.png">
+                </a>
+                <a href = "#">
+                    <img src="img/indeximg/img78.png">
+                </a>
+                <a href = "#">
+                    <img src="img/indeximg/img68.jpg">
+                </a>
+            </span>
+    </div>
+    <!-- 回到顶部 -->
+    <div class="new_mbshop_topandconsult">
+        <a href="javascript:;" class="new_mbshop_btn_topred"></a>
+        <a href="javascript:;" class="mbshop_new_btn_onlineConsultred"></a>
+    </div>
+    <script src="js/list_check.min.js""></script>
+    <script src="js/pageMe.min.js"></script>
+    <script>
+        // pageMe.js 使用方法
+        $("#pageTab").paging({
+            pageNum: 5, // 当前页面
+            totalNum: 14, // 总页码
+            totalList: 300, // 记录总数量
+            callback: function (num) { //回调函数
+                console.log(num);
+            }
+        });
+        $(window).scroll(function() {
+		var scrollValuex=parseInt($(document).scrollTop());
+		var floopyTopx=parseInt($(window).height());
+		if (scrollValuex>floopyTopx) {
+			$(".new_mbshop_btn_top,.new_mbshop_btn_topred").show();
+		}else{
+			$(".new_mbshop_btn_top,.new_mbshop_btn_topred").hide();
+		};
+        });
+        
+        $(".new_mbshop_btn_topred").click(function(){
+            var sc=$(window).scrollTop();
+            $('body,html').animate({scrollTop:0},500);
+        })
+    </script>
+</body>
+</html>
